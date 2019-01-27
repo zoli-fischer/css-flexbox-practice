@@ -1,0 +1,76 @@
+$HeaderHeight: 55px;
+$HeaderHeightSmall: 40px;
+
+:local(.Main) {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+:local(.Header) {
+    display: flex;
+    height: $HeaderHeight;
+
+    @media only screen and (max-width: 767px) {
+        height: $HeaderHeightSmall;
+    }
+
+    :local(.Header1) {
+        background: #ff00ff;
+        flex: 1;
+    }
+
+    :local(.Header2) {
+        background: #000fff;
+        flex: 2;
+
+        @media only screen and (max-width: 767px) {
+            display: none;
+        }
+    }
+
+    :local(.Header3) {
+        flex: 1;
+        background: #ff00ff;
+    }
+}
+
+:local(.ContentHolder) {
+    display: flex;
+    flex: 1;
+
+    :local(.SideBar) {
+        background: #00ff0f;
+        width: 320px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+
+        @media only screen and (max-width: 1024px) {
+            width: 260px;
+        }
+
+        @media only screen and (max-width: 991px) {
+            position: fixed;
+            bottom: 0px;
+            top: $HeaderHeight;
+        }
+
+        @media only screen and (max-width: 767px) {
+            top: $HeaderHeightSmall;
+        }
+    }
+
+    :local(.Content) {
+        background: #ff000f;
+        flex: 1;
+        overflow-x: hidden; 
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
